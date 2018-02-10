@@ -14,7 +14,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {MediaService} from './services/media.service';
 import { UploadComponent } from './upload/upload.component';
 import {HttpModule} from '@angular/http';
-
+import { ThumbnailPipe } from './pipes/thumbnail.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,8 @@ import {HttpModule} from '@angular/http';
     LogoutComponent,
     RegisterComponent,
     TopBarComponent,
-    UploadComponent
+    UploadComponent,
+    ThumbnailPipe,
   ],
   imports: [
     BrowserModule,

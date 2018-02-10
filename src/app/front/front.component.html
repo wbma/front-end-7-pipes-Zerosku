@@ -1,1 +1,10 @@
 <div>Display this content when logged in.</div>
+
+<div class="card" *ngFor="let file of mediaArray">
+  <img [alt]="file?.title" [src]="mediaService.mediaUrl + (file?.filename | thumbnail: 'small')">
+  <!-- should transform: SOMEIMAGE.jpg => SOMEIMAGE-tn160.png -->
+  <div class="container">
+    <h4>{{file?.title}}</h4>
+    <p>{{file?.description}}</p>
+  </div>
+</div>

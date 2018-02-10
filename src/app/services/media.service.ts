@@ -5,14 +5,20 @@ import {Router} from '@angular/router';
 @Injectable()
 export class MediaService {
 
+  test = 'Matafaka';
   username: string;
   password: string;
   status: string;
 
   apiUrl = 'http://media.mw.metropolia.fi/wbma';
+  mediaUrl = 'http://media.mw.metropolia.fi/wbma/uploads/';
 
   constructor (private http: HttpClient, private router: Router) {
 
+  }
+
+  getNewFiles() {
+    return this.http.get(this.apiUrl + '/media');
   }
 
   public login() {
@@ -44,19 +50,6 @@ export class MediaService {
     const settings = {
       headers: new HttpHeaders().set('x-access-token', localStorage.getItem('token')),
     };
-    /*const settings = {
-      headers: new HttpHeaders().set('x-access-token',
-        localStorage.getItem('token')),
-    };
-    this.http.get(this.apiUrl + '/users/user', settings).
-        subscribe(response => {
-      console.log(response);
-      localStorage.setItem('user', JSON.stringify(response));
-      this.router.navigate(['front']);
-    }, (error: HttpErrorResponse) => {
-          this.status = error.statusText;
-          this.router.navigate(['login']);
-    });*/
     return this.http.get(this.apiUrl + '/users/user', settings);
   }
 
