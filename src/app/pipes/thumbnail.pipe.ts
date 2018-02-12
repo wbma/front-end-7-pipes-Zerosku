@@ -16,5 +16,4 @@ export class ThumbnailPipe implements PipeTransform {
 
     return filename.split('.')[0] + imageSizes.small;
   }
-
 }
